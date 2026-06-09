@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Ticket Booking App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Search Screen -->
+    <div class="screen" id="searchScreen">
+        <h2>Bus Ticket Booking</h2>
+
+        <label>From</label>
+        <input type="text" placeholder="Chennai">
+
+        <label>To</label>
+        <input type="text" placeholder="Coimbatore">
+
+        <label>Date</label>
+        <input type="date">
+
+        <button onclick="showScreen('busListScreen')">
+            Search Buses
+        </button>
+    </div>
+
+    <!-- Bus List Screen -->
+    <div class="screen hidden" id="busListScreen">
+        <h2>Available Buses</h2>
+
+        <div class="card">
+            <h3>Express Travels</h3>
+            <p>Departure: 08:00 AM</p>
+            <p>Arrival: 01:00 PM</p>
+            <p>Price: ₹650</p>
+
+            <button onclick="showScreen('seatScreen')">
+                Select Seat
+            </button>
+        </div>
+
+        <br>
+
+        <div class="card">
+            <h3>Royal Travels</h3>
+            <p>Departure: 09:30 AM</p>
+            <p>Arrival: 02:30 PM</p>
+            <p>Price: ₹700</p>
+
+            <button onclick="showScreen('seatScreen')">
+                Select Seat
+            </button>
+        </div>
+    </div>
+
+    <!-- Seat Selection Screen -->
+    <div class="screen hidden" id="seatScreen">
+        <h2>Select Your Seat</h2>
+
+        <div class="seats">
+            <button class="seat" onclick="selectSeat(1)">1</button>
+            <button class="seat" onclick="selectSeat(2)">2</button>
+            <button class="seat" onclick="selectSeat(3)">3</button>
+            <button class="seat" onclick="selectSeat(4)">4</button>
+            <button class="seat" onclick="selectSeat(5)">5</button>
+            <button class="seat" onclick="selectSeat(6)">6</button>
+        </div>
+
+        <p id="selectedSeatText">
+            Selected Seat: None
+        </p>
+
+        <button class="book-btn" onclick="bookTicket()">
+            Book Now
+        </button>
+    </div>
+
+    <!-- Booking Summary Screen -->
+    <div class="screen hidden" id="summaryScreen">
+        <h2>Booking Summary</h2>
+
+        <p><strong>Bus:</strong> Express Travels</p>
+
+        <p>
+            <strong>Seat Number:</strong>
+            <span id="finalSeat"></span>
+        </p>
+
+        <p><strong>Amount:</strong> ₹650</p>
+
+        <h3>✅ Ticket Booked Successfully</h3>
+
+        <button onclick="showScreen('searchScreen')">
+            Book Another Ticket
+        </button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
